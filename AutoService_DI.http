@@ -1,0 +1,126 @@
+@host = https://localhost:63426
+
+### CUSTOMERS
+
+GET {{host}}/customers
+
+###
+GET {{host}}/customers/1
+
+###
+GET {{host}}/customers/1/cars
+
+###
+POST {{host}}/customers
+Content-Type: application/json
+
+{
+  "fullName": "ანა გოგიჩაიშვილი",
+  "phone": "555987654",
+  "email": "ana@mail.ge"
+}
+
+###
+POST {{host}}/customers
+Content-Type: application/json
+
+{
+  "fullName": "ა",
+  "phone": "123",
+  "email": "not-an-email"
+}
+
+###
+PUT {{host}}/customers/1
+Content-Type: application/json
+
+{
+  "fullName": "გიორგი ბერიძე (განახლებული)",
+  "phone": "555123456",
+  "email": "giorgi.new@mail.ge"
+}
+
+###
+DELETE {{host}}/customers/3
+
+### CARS
+
+GET {{host}}/cars
+
+###
+GET {{host}}/cars/1
+
+###
+POST {{host}}/cars
+Content-Type: application/json
+
+{
+  "plate": "TB-999-GE",
+  "brand": "Kia",
+  "model": "Sportage",
+  "year": 2021,
+  "customerId": 2
+}
+
+###
+PUT {{host}}/cars/2/inspection
+Content-Type: application/json
+
+{
+  "issueDate": "2026-10-01",
+  "expiryDate": "2027-10-01",
+  "passed": true
+}
+
+###
+DELETE {{host}}/cars/2/inspection
+
+### MECHANICS
+
+GET {{host}}/mechanics
+
+###
+GET {{host}}/mechanics/1
+
+###
+POST {{host}}/mechanics
+Content-Type: application/json
+
+{
+  "fullName": "ნიკა ხარაბაძე",
+  "experienceYears": 3
+}
+
+### REPAIRS
+
+GET {{host}}/repairs
+
+###
+GET {{host}}/repairs/2
+
+###
+POST {{host}}/repairs
+Content-Type: application/json
+
+{
+  "carId": 1,
+  "description": "საბურავების შეცვლა",
+  "totalCost": 200,
+  "status": "Pending",
+  "mechanicIds": [1, 3]
+}
+
+###
+PUT {{host}}/repairs/2
+Content-Type: application/json
+
+{
+  "carId": 2,
+  "description": "სამუხრუჭე ხუნდების შეცვლა",
+  "totalCost": 380,
+  "status": "Done",
+  "mechanicIds": [2, 3]
+}
+
+###
+DELETE {{host}}/repairs/3

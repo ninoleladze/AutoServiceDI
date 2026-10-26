@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "AutoService_DI": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:63426;http://localhost:63427"
+    }
+  }
+}
